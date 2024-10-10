@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Admin.css">
+    <title>Reports - Budget & Expenditure System</title>
+    <style>
+        /* Add basic styling for reports page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .full_page {
+            padding: 20px;
+        }
+        .nav_bar {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        .nav_bar img {
+            height: 50px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+        }
+        nav ul li a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+        .report_section {
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="full_page">
+        <!-- Navigation Bar -->
+        <div class="nav_bar">
+            <div>
+                <img src="./Logo.jpg" alt="System Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="AdminPage.html">HOME</a></li>
+                    <li><a href="BudgetEntry.html">BUDGET ENTRY</a></li>
+                    <li><a href="ExpenditureLog.html">EXPENDITURE LOG</a></li>
+                    <li><a href="Reports.html">REPORTS</a></li>
+                    <li><a href="AdminPanel.html">ADMIN PANEL</a></li>
+                    <li><button class="logout_btn" id="logout_btn">Log Out</button></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Reports Section -->
+        <div class="report_section">
+            <h1>Reports Overview</h1>
+            <p>View and analyze various reports regarding budget and expenditure.</p>
+
+            <h2>Budget Allocation Report</h2>
+            <table>
+                <tr>
+                    <th>Department</th>
+                    <th>Allocated Budget</th>
+                    <th>Used Budget</th>
+                    <th>Remaining Budget</th>
+                </tr>
+                <tr>
+                    <td>Marketing</td>
+                    <td>$50,000</td>
+                    <td>$30,000</td>
+                    <td>$20,000</td>
+                </tr>
+                <tr>
+                    <td>Development</td>
+                    <td>$100,000</td>
+                    <td>$80,000</td>
+                    <td>$20,000</td>
+                </tr>
+                <!-- More rows as needed -->
+            </table>
+
+            <h2>Expenditure Log</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Department</th>
+                </tr>
+                <tr>
+                    <td>2024-01-15</td>
+                    <td>Office Supplies</td>
+                    <td>$500</td>
+                    <td>Marketing</td>
+                </tr>
+                <tr>
+                    <td>2024-01-20</td>
+                    <td>Software Licenses</td>
+                    <td>$1,200</td>
+                    <td>Development</td>
+                </tr>
+                <!-- More rows as needed -->
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Add logout confirmation
+        document.getElementById('logout_btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            var confirmLogout = confirm("Are you sure you want to log out?");
+            if (confirmLogout) {
+                window.location.href = './home.html';  // Redirect to home page if confirmed
+            }
+        });
+    </script>
+</body>
+</html>

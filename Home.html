@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Budget and Expenditure System</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>IBES</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <!-- Login Button -->
+                <li><a href="#" id="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <section id="main" class="main-content">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <h2>Welcome to the Integrated Budget and Expenditure System</h2>
+                <p>Streamline your budget and expenditure management efficiently.</p>
+                <button id="get-started-btn">Get Started</button>
+            </div>
+            <div class="hero-image">
+                <img src="budget.jpg" alt="Budget System">
+            </div>
+        </div>
+
+        <!-- About Us Section -->
+        <div id="about" class="about-section">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <!-- Member Card 1 -->
+                <div class="member-card">
+                    <h3>John Doe</h3>
+                    <p>System Administrator</p>
+                    <button>Contact</button>
+                </div>
+
+                <!-- Member Card 2 -->
+                <div class="member-card">
+                    <h3>Jane Smith</h3>
+                    <p>Budget Manager</p>
+                    <button>Contact</button>
+                </div>
+
+                <!-- Member Card 3 -->
+                <div class="member-card">
+                    <h3>David Lee</h3>
+                    <p>Department/Project Manager</p>
+                    <button>Contact</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div id="features" class="features-section">
+            <h2>Features</h2>
+            <div class="feature">
+                <h3>Role-Based Access</h3>
+                <p>Each user has access to specific functionalities based on their role in the organization.</p>
+            </div>
+            <div class="feature">
+                <h3>Budget Tracking</h3>
+                <p>Real-time tracking of all budgets across departments and projects.</p>
+            </div>
+            <div class="feature">
+                <h3>Expenditure Reports</h3>
+                <p>Generate detailed reports on expenditures to ensure proper fund usage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal (Glass Mode) -->
+    <div id="login-modal" class="login-modal">
+        <div class="login-container">
+            <h2>Login</h2>
+            <form>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section with Bottom Navigation -->
+    <footer id="contact" class="footer">
+        <h2>Contact Us</h2>
+        <p>Email: KaffaIBES@support.com</p>
+        <p>Phone: +251 908 123 456 </p>
+        <p>Address: Kaffa Zone, Ethiopia</p>
+        <nav class="footer-nav">
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#" id="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+    // Show login modal when the Login button is clicked
+    document.getElementById('login-btn').addEventListener('click', function (event) {
+        event.preventDefault();
+        document.getElementById('login-modal').style.display = 'flex';
+    });
+
+    // Show login modal when the Get Started button is clicked
+    document.getElementById('get-started-btn').addEventListener('click', function () {
+        document.getElementById('login-modal').style.display = 'flex';
+    });
+
+    // Close modal on clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById('login-modal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // Handle login
+    document.querySelector('.login-container form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Check credentials and redirect based on the role
+        if (username === 'admin' && password === 'admin123') {
+            window.location.href = 'Admin_Page.html'; // Redirect to System Administrator page
+        } else if (username === 'budget' && password === 'budget123') {
+            window.location.href = 'Budgets/Budget_Manager.html'; // Redirect to Budget Manager page
+        } else if (username === 'project' && password === 'project123') {
+            window.location.href = 'Project/ProjectManager.html'; // Redirect to Project Manager page
+        } else if (username === 'finance' && password === 'finance123') {
+            window.location.href = 'Finances/FinanceManager.html'; // Redirect to Finance Officer page
+        } else if (username === 'auditor' && password === 'auditor123') {
+            window.location.href = 'Auditor/Auditor_Page.html'; // Redirect to Auditor page
+        } else {
+            alert("Invalid credentials. Please try again.");
+        }
+    });
+</script>
+
+</body>
+</html>

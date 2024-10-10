@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Admin.css">
+    <title>Admin Panel - Budget & Expenditure System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .full_page {
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .input_field {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        .submit_btn {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .user_table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .user_table th, .user_table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .user_table th {
+            background-color: #f2f2f2;
+        }
+        .edit_btn, .delete_btn {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="full_page">
+        <h1>Admin Panel Dashboard</h1>
+
+        <!-- User Management Section -->
+        <div class="section">
+            <h2>User Management</h2>
+            <button onclick="document.getElementById('add_user_form').style.display='block'">Add New User</button>
+            <div id="add_user_form" style="display:none;">
+                <form action="/addUser" method="POST" class="input_group_admin">
+                    <input type="text" class="input_field" name="first_name" placeholder="First Name" required>
+                    <input type="text" class="input_field" name="last_name" placeholder="Last Name" required>
+                    <input type="email" class="input_field" name="email" placeholder="Email" required>
+                    <select name="role" class="input_field" required>
+                        <option value="" disabled selected>Select Role</option>
+                        <option value="admin">System Administrator</option>
+                        <option value="budget_manager">Budget Manager</option>
+                        <option value="finance_officer">Finance Officer</option>
+                        <option value="user">User</option>
+                    </select>
+                    <button type="submit" class="submit_btn">Add User</button>
+                </form>
+            </div>
+
+            <h3>Existing Users</h3>
+            <table class="user_table">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john.doe@example.com</td>
+                    <td>Budget Manager</td>
+                    <td>
+                        <button class="edit_btn">Edit</button>
+                        <button class="delete_btn">Delete</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Role Assignment Section -->
+        <div class="section">
+            <h2>Role Assignment</h2>
+            <form action="/assignRole" method="POST" class="input_group_admin">
+                <input type="email" class="input_field" name="email" placeholder="User Email" required>
+                <select name="role" class="input_field" required>
+                    <option value="" disabled selected>Select New Role</option>
+                    <option value="admin">System Administrator</option>
+                    <option value="budget_manager">Budget Manager</option>
+                    <option value="finance_officer">Finance Officer</option>
+                    <option value="user">User</option>
+                </select>
+                <button type="submit" class="submit_btn">Assign Role</button>
+            </form>
+        </div>
+
+        <!-- System Monitoring Section -->
+        <div class="section">
+            <h2>System Monitoring</h2>
+            <p>Monitor user activity, budget allocation, and expenditure logs.</p>
+            <button onclick="location.href='#'">View Logs</button>
+        </div>
+    </div>
+
+    <script>
+        // Add logout confirmation
+        document.getElementById('logout_btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            var confirmLogout = confirm("Are you sure you want to log out?");
+            if (confirmLogout) {
+                window.location.href = './home.html';  // Redirect to home page if confirmed
+            }
+        });
+    </script>
+</body>
+</html>

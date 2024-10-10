@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>Finance Officer - Budget & Expenditure System</title>
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .full_page {
+            padding: 20px;
+        }
+        
+        /* Navigation Bar Styling */
+        .nav_bar {
+            background-color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .nav_bar img {
+            height: 50px;
+        }
+        .nav_bar nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .nav_bar nav ul li {
+            margin: 0 15px;
+        }
+        .nav_bar nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .nav_bar nav ul li a:hover {
+            color: #f4b400;
+        }
+        .logout_btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .logout_btn:hover {
+            background-color: #d32f2f;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav_bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav_bar nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            .nav_bar nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="full_page">
+        <!-- Navigation Bar -->
+        <div class="nav_bar">
+            <div>
+                <img src="./Logo.jpg" alt="System Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">BUDGET ENTRY</a></li>
+                    <li><a href="#">EXPENDITURE LOG</a></li>
+                    <li><a href="#">REPORTS</a></li>
+                    <li><a href="#">FINANCE OFFICER</a></li>
+                    <li><button class="logout_btn" onclick="confirmLogout()">Log Out</button></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Finance Officer Panel -->
+        <div class="finance_panel">
+            <h1>Finance Officer Dashboard</h1>
+
+            <!-- Log Expenditure Section -->
+            <div class="section">
+                <h2>Log Expenditure</h2>
+                <form action="/logExpenditure" method="POST" class="input_group_budget">
+                    <input type="text" class="input_field" name="expenditure_name" placeholder="Expenditure Description" required>
+                    <input type="number" class="input_field" name="amount" placeholder="Amount Spent" required>
+                    <input type="date" class="input_field" name="date" placeholder="Date" required>
+                    <select name="department" class="input_field" required>
+                        <option value="" disabled selected>Select Department/Project</option>
+                        <option value="IT">IT Department</option>
+                        <option value="HR">HR Department</option>
+                        <option value="Marketing">Marketing Department</option>
+                    </select>
+                    <button type="submit" class="submit_btn">Log Expenditure</button>
+                </form>
+            </div>
+
+            <!-- Approve Pending Payments -->
+            <div class="section">
+                <h2>Approve Pending Payments</h2>
+                <table class="payment_table">
+                    <tr>
+                        <th>Payment ID</th>
+                        <th>Department/Project</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>3001</td>
+                        <td>Marketing</td>
+                        <td>$10,000</td>
+                        <td>2024-05-15</td>
+                        <td>Pending</td>
+                        <td>
+                            <button class="approve_btn" onclick="approvePayment('3001')">Approve</button>
+                            <button class="reject_btn" onclick="rejectPayment('3001')">Reject</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Monitor All Transactions -->
+            <div class="section">
+                <h2>Monitor All Transactions</h2>
+                <table class="transaction_table">
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Department/Project</th>
+                    </tr>
+                    <tr>
+                        <td>4001</td>
+                        <td>Office Supplies</td>
+                        <td>$2,500</td>
+                        <td>2024-05-10</td>
+                        <td>HR Department</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Finance Officer actions -->
+    <script>
+        // Confirm logout function
+        function confirmLogout() {
+            if (confirm('Are you sure you want to log out?')) {
+                // Redirect to landing page
+                window.location.href = './landing_page.html';
+            }
+        }
+
+        // Payment approval confirmation
+        function approvePayment(paymentId) {
+            if (confirm('Are you sure you want to approve this payment?')) {
+                // Call backend to approve the payment
+                window.location.href = `/approvePayment?id=${paymentId}`;
+            }
+        }
+
+        // Payment rejection confirmation
+        function rejectPayment(paymentId) {
+            if (confirm('Are you sure you want to reject this payment?')) {
+                // Call backend to reject the payment
+                window.location.href = `/rejectPayment?id=${paymentId}`;
+            }
+        }
+    </script>
+</body>
+</html>

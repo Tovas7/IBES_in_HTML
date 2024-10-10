@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Admin.css"> <!-- Assuming Admin.css is used for styling -->
+    <title>Budget Entry - Budget & Expenditure System</title>
+    <style>
+        /* Add some styles for form layout */
+        .budget_entry_section {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .budget_entry_section h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .input_group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .input_group label {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .input_group input, .input_group select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit_btn {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit_btn:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="full_page">
+        <!-- Navigation Bar -->
+        <div class="nav_bar">
+            <div>
+                <img src="./Logo.jpg" alt="System Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="AdminPage.html">HOME</a></li>
+                    <li><a href="BudgetEntry.html">BUDGET ENTRY</a></li>
+                    <li><a href="ExpenditureLog.html">EXPENDITURE LOG</a></li>
+                    <li><a href="Reports.html">REPORTS</a></li>
+                    <li><a href="AdminPanel.html">ADMIN PANEL</a></li>
+                    <li><button class="logout_btn" id="logout_btn">Log Out</button></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Budget Entry Section -->
+        <div class="budget_entry_section">
+            <h1>Enter Budget Details</h1>
+
+            <form action="/submitBudget" method="POST">
+                <div class="input_group">
+                    <label for="department">Department/Project</label>
+                    <select name="department" id="department" required>
+                        <option value="" disabled selected>Select Department/Project</option>
+                        <option value="finance">Finance Department</option>
+                        <option value="it">IT Department</option>
+                        <option value="marketing">Marketing Department</option>
+                        <option value="research">Research & Development</option>
+                    </select>
+                </div>
+
+                <div class="input_group">
+                    <label for="budget_amount">Budget Amount</label>
+                    <input type="number" id="budget_amount" name="budget_amount" placeholder="Enter Budget Amount" required>
+                </div>
+
+                <div class="input_group">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="description" placeholder="Enter Description" required>
+                </div>
+
+                <div class="input_group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <button type="submit" class="submit_btn">Submit Budget</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Add logout confirmation
+        document.getElementById('logout_btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            var confirmLogout = confirm("Are you sure you want to log out?");
+            if (confirmLogout) {
+                window.location.href = './home.html';  // Redirect to home page if confirmed
+            }
+        });
+    </script>
+</body>
+</html>

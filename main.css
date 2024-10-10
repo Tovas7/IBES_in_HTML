@@ -1,0 +1,272 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    scroll-behavior: smooth;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style-type: none;
+}
+
+.nav-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Glass Mode Login Modal */
+.login-modal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+    width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* Glass effect */
+    color: white;
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container label {
+    margin: 10px 0 5px;
+}
+
+.login-container input {
+    padding: 10px;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+}
+
+.login-container button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Main Content Area */
+.main-content {
+    padding: 20px;
+    background-color: #e8f4ff;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #e8f4ff;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    color: #007BFF;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.hero button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.hero button:hover {
+    background-color: #0056b3;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* About Us Section */
+.about-section {
+    padding: 40px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.about-section h2 {
+    color: #007BFF;
+    margin-bottom: 40px;
+    font-size: 2em;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.member-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 250px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+}
+
+.member-card h3 {
+    color: #333;
+    font-size: 1.5em;
+}
+
+.member-card p {
+    font-size: 1em;
+    color: #555;
+}
+
+.member-card button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.member-card button:hover {
+    background-color: #0056b3;
+}
+
+/* Features Section */
+.features-section {
+    padding: 40px;
+    background-color: #f9f9f9;
+}
+
+.features-section h2 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+.feature {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.feature h3 {
+    color: #333;
+}
+
+/* Footer (Contact Section) */
+.footer {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.footer h2 {
+    color: white;
+}
+/* Footer (Contact Section) */
+.footer {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.footer h2 {
+    color: white;
+}
+
+.footer-nav {
+    margin-top: 10px;
+}
+
+.footer-nav .nav-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-nav .nav-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-nav .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-nav .nav-links a:hover {
+    text-decoration: underline;
+}

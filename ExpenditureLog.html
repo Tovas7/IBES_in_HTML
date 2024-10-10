@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Admin.css">
+    <title>Expenditure Log - Budget & Expenditure System</title>
+    <style>
+        /* Add CSS for the form and table */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .input_group {
+            margin-bottom: 20px;
+        }
+        .input_field {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit_btn {
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit_btn:hover {
+            background-color: #4cae4c;
+        }
+        .expenditure_table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .expenditure_table th, .expenditure_table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .expenditure_table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Log Expenditures</h1>
+
+    <!-- Expenditure Entry Form -->
+    <div class="input_group">
+        <form action="/logExpenditure" method="POST">
+            <input type="text" class="input_field" name="item" placeholder="Item/Service" required>
+            <input type="number" class="input_field" name="amount" placeholder="Amount" required>
+            <input type="date" class="input_field" name="date" required>
+            <textarea class="input_field" name="description" placeholder="Description" rows="2"></textarea>
+            <button type="submit" class="submit_btn">Log Expenditure</button>
+        </form>
+    </div>
+
+    <!-- Expenditure Records -->
+    <h2>Recorded Expenditures</h2>
+    <table class="expenditure_table">
+        <tr>
+            <th>Item/Service</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Description</th>
+        </tr>
+        <!-- Sample Data (to be replaced by actual data) -->
+        <tr>
+            <td>Office Supplies</td>
+            <td>$150.00</td>
+            <td>2024-10-01</td>
+            <td>Printer paper and ink</td>
+        </tr>
+        <tr>
+            <td>Software Subscription</td>
+            <td>$200.00</td>
+            <td>2024-10-05</td>
+            <td>Monthly software subscription fee</td>
+        </tr>
+    </table>
+    
+    <script>
+        // Add any JavaScript functionalities here
+    </script>
+</body>
+</html>
